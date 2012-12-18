@@ -1,3 +1,4 @@
+
 %if 0%{?fedora} > 12 || 0%{?rhel} > 6
 %global with_python3 1
 %endif
@@ -6,7 +7,7 @@
 
 Name:               python-dogpile-cache
 Version:            0.4.0
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            A caching front-end based on the Dogpile lock.
 
 Group:              Development/Libraries
@@ -92,11 +93,14 @@ popd
 %{__python} setup.py install -O1 --skip-build --root=%{buildroot}
 
 %check
+# Disable tests on epel6
+%if 0%{?fedora}
 %{__python} setup.py test
 %if 0%{?with_python3}
 pushd %{py3dir}
 %{__python3} setup.py test
 popd
+%endif
 %endif
 
 %files
@@ -112,5 +116,8 @@ popd
 %endif
 
 %changelog
+* Fri Dec 14 2012 Ralph Bean <rbean@redhat.com> - 0.4.0-2
+- Disable tests on epel6.
+
 * Tue Dec 11 2012 Ralph Bean <rbean@redhat.com> - 0.4.0-1
 - Initial packaging for Fedora
