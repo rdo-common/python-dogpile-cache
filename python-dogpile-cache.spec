@@ -7,8 +7,8 @@
 
 Name:               python-dogpile-cache
 Version:            0.4.0
-Release:            2%{?dist}
-Summary:            A caching front-end based on the Dogpile lock.
+Release:            3%{?dist}
+Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
 License:            BSD
@@ -116,6 +116,9 @@ popd
 %endif
 
 %changelog
+* Tue Dec 18 2012 Ralph Bean <rbean@redhat.com> - 0.4.0-3
+- Remove period from end of summary.
+
 * Fri Dec 14 2012 Ralph Bean <rbean@redhat.com> - 0.4.0-2
 - Disable tests on epel6.
 
