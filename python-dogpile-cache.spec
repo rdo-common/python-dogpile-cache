@@ -6,8 +6,8 @@
 %global modname dogpile.cache
 
 Name:               python-dogpile-cache
-Version:            0.4.0
-Release:            3%{?dist}
+Version:            0.4.1
+Release:            1.20130103hg108%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
@@ -104,18 +104,23 @@ popd
 %endif
 
 %files
-%doc README.rst LICENSE CHANGES
+%doc README.rst LICENSE
 %{python_sitelib}/dogpile/cache/
 %{python_sitelib}/%{modname}-%{version}*
 
 %if 0%{?with_python3}
 %files -n python3-dogpile-cache
-%doc README.rst LICENSE CHANGES
+%doc README.rst LICENSE
 %{python3_sitelib}/dogpile/cache/
 %{python3_sitelib}/%{modname}-%{version}-*
 %endif
 
 %changelog
+* Thu Jan 03 2013 Ralph Bean <rbean@redhat.com> - 0.4.1-1.20130103hg108
+- Move to a post-release hg checkout.
+- Experimenting with background value creation.
+- Temporarily removed the CHANGES doc
+
 * Tue Dec 18 2012 Ralph Bean <rbean@redhat.com> - 0.4.0-3
 - Remove period from end of summary.
 
