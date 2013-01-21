@@ -20,17 +20,17 @@ BuildRequires:      python2-devel
 BuildRequires:      python-setuptools
 BuildRequires:      python-nose
 BuildRequires:      python-mock
-BuildRequires:      python-dogpile-core
+BuildRequires:      python-dogpile-core >= 0.4.1
 
 %if 0%{?with_python3}
 BuildRequires:      python3-devel
 BuildRequires:      python3-setuptools
 BuildRequires:      python3-nose
 BuildRequires:      python3-mock
-BuildRequires:      python3-dogpile-core
+BuildRequires:      python3-dogpile-core >= 0.4.1
 %endif
 
-Requires:      python-dogpile-core
+Requires:      python-dogpile-core >= 0.4.1
 
 %description
 A caching API built around the concept of a "dogpile lock", which allows
@@ -52,7 +52,7 @@ relegated to the trash heap.
 Summary:            A caching front-end based on the Dogpile lock.
 Group:              Development/Libraries
 
-Requires:      python3-dogpile-core
+Requires:      python3-dogpile-core >= 0.4.1
 
 %description -n python3-dogpile-cache
 A caching API built around the concept of a "dogpile lock", which allows
@@ -123,6 +123,7 @@ popd
 * Mon Jan 21 2013 Ralph Bean <rbean@redhat.com> - 0.4.2-1
 - Upstream accepted async patches.
 - Added BuildRequires on python-mock
+- Restrict python-dogpile-core to newer version.
 
 * Fri Jan 11 2013 Ralph Bean <rbean@redhat.com> - 0.4.1-2.20130111hg111
 - Updated experimental async work.
