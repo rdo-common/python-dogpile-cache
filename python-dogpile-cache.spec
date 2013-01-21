@@ -19,12 +19,14 @@ BuildArch:          noarch
 BuildRequires:      python2-devel
 BuildRequires:      python-setuptools
 BuildRequires:      python-nose
+BuildRequires:      python-mock
 BuildRequires:      python-dogpile-core
 
 %if 0%{?with_python3}
 BuildRequires:      python3-devel
 BuildRequires:      python3-setuptools
 BuildRequires:      python3-nose
+BuildRequires:      python3-mock
 BuildRequires:      python3-dogpile-core
 %endif
 
@@ -120,6 +122,7 @@ popd
 %changelog
 * Mon Jan 21 2013 Ralph Bean <rbean@redhat.com> - 0.4.2-1
 - Upstream accepted async patches.
+- Added BuildRequires on python-mock
 
 * Fri Jan 11 2013 Ralph Bean <rbean@redhat.com> - 0.4.1-2.20130111hg111
 - Updated experimental async work.
