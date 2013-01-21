@@ -1,4 +1,3 @@
-
 %if 0%{?fedora} > 12 || 0%{?rhel} > 6
 %global with_python3 1
 %endif
@@ -6,8 +5,8 @@
 %global modname dogpile.cache
 
 Name:               python-dogpile-cache
-Version:            0.4.1
-Release:            1.20130103hg108%{?dist}
+Version:            0.4.2
+Release:            1%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
@@ -16,7 +15,6 @@ URL:                http://pypi.python.org/pypi/dogpile.cache
 Source0:            http://pypi.python.org/packages/source/d/%{modname}/%{modname}-%{version}.tar.gz
 
 BuildArch:          noarch
-
 
 BuildRequires:      python2-devel
 BuildRequires:      python-setuptools
@@ -29,6 +27,8 @@ BuildRequires:      python3-setuptools
 BuildRequires:      python3-nose
 BuildRequires:      python3-dogpile-core
 %endif
+
+Requires:      python-dogpile-core
 
 %description
 A caching API built around the concept of a "dogpile lock", which allows
@@ -49,6 +49,8 @@ relegated to the trash heap.
 %package -n python3-dogpile-cache
 Summary:            A caching front-end based on the Dogpile lock.
 Group:              Development/Libraries
+
+Requires:      python3-dogpile-core
 
 %description -n python3-dogpile-cache
 A caching API built around the concept of a "dogpile lock", which allows
@@ -116,6 +118,13 @@ popd
 %endif
 
 %changelog
+* Mon Jan 21 2013 Ralph Bean <rbean@redhat.com> - 0.4.2-1
+- Upstream accepted async patches.
+
+* Fri Jan 11 2013 Ralph Bean <rbean@redhat.com> - 0.4.1-2.20130111hg111
+- Updated experimental async work.
+- Actually require python-dogpile-core for install.
+
 * Thu Jan 03 2013 Ralph Bean <rbean@redhat.com> - 0.4.1-1.20130103hg108
 - Move to a post-release hg checkout.
 - Experimenting with background value creation.
