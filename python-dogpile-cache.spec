@@ -6,7 +6,7 @@
 
 Name:               python-dogpile-cache
 Version:            0.4.2
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.4.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
 * Mon Jan 21 2013 Ralph Bean <rbean@redhat.com> - 0.4.2-1
 - Upstream accepted async patches.
 - Added BuildRequires on python-mock
