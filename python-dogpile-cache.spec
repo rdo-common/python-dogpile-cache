@@ -6,7 +6,7 @@
 
 Name:               python-dogpile-cache
 Version:            0.5.3
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Fri May 30 2014 Bohuslav Kabrda <bkabrda@redhat.com> - 0.5.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Changes/Python_3.4
+
 * Tue Jan 28 2014 Ralph Bean <rbean@redhat.com> - 0.5.3-1
 - Latest upstream.
 - Modernize python3 conditional.
