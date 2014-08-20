@@ -5,8 +5,8 @@
 %global modname dogpile.cache
 
 Name:               python-dogpile-cache
-Version:            0.5.3
-Release:            3%{?dist}
+Version:            0.5.4
+Release:            1%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Wed Aug 20 2014 Ralph Bean <rbean@redhat.com> - 0.5.4-1
+- Latest upstream.
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.5.3-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
