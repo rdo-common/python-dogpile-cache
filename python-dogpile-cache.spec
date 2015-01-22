@@ -5,7 +5,7 @@
 %global modname dogpile.cache
 
 Name:               python-dogpile-cache
-Version:            0.5.4
+Version:            0.5.5
 Release:            1%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Thu Jan 22 2015 Ralph Bean <rbean@redhat.com> - 0.5.5-1
+- new version
+
 * Wed Aug 20 2014 Ralph Bean <rbean@redhat.com> - 0.5.4-1
 - Latest upstream.
 
