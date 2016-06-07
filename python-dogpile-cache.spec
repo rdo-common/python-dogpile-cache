@@ -5,8 +5,8 @@
 %global modname dogpile.cache
 
 Name:               python-dogpile-cache
-Version:            0.5.7
-Release:            3%{?dist}
+Version:            0.6.1
+Release:            1%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
@@ -98,17 +98,20 @@ popd
 
 %files
 %doc README.rst LICENSE
-%{python_sitelib}/dogpile/cache/
+%{python_sitelib}/dogpile
 %{python_sitelib}/%{modname}-%{version}*
 
 %if 0%{?with_python3}
 %files -n python3-dogpile-cache
 %doc README.rst LICENSE
-%{python3_sitelib}/dogpile/cache/
+%{python3_sitelib}/dogpile
 %{python3_sitelib}/%{modname}-%{version}-*
 %endif
 
 %changelog
+* Tue Jun 07 2016 Kevin Fenzi <kevin@scrye.com> - 0.6.1-1
+- Update to 0.6.1. Fixes bug #1343255
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.5.7-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
