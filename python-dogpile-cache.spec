@@ -6,7 +6,7 @@
 
 Name:               python-dogpile-cache
 Version:            0.6.1
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Tue Jul 19 2016 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6.1-2
+- https://fedoraproject.org/wiki/Changes/Automatic_Provides_for_Python_RPM_Packages
+
 * Tue Jun 07 2016 Kevin Fenzi <kevin@scrye.com> - 0.6.1-1
 - Update to 0.6.1. Fixes bug #1343255
 
