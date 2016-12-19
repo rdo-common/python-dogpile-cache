@@ -6,7 +6,7 @@
 
 Name:               python-dogpile-cache
 Version:            0.6.2
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            A caching front-end based on the Dogpile lock
 
 Group:              Development/Libraries
@@ -109,6 +109,9 @@ popd
 %endif
 
 %changelog
+* Mon Dec 19 2016 Miro Hrončok <mhroncok@redhat.com> - 0.6.2-2
+- Rebuild for Python 3.6
+
 * Sat Aug 27 2016 Kevin Fenzi <kevin@scrye.com> - 0.6.2-1
 - Update to 0.6.2. Fixes bug #1370712
 
