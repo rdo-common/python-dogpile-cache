@@ -3,11 +3,32 @@
 %endif
 
 %global modname dogpile.cache
+%global sum A caching front-end based on the Dogpile lock
+%global desc Dogpile consists of two subsystems, one building on top of the other.\
+\
+dogpile provides the concept of a "dogpile lock", a control structure\
+which allows a single thread of execution to be selected as the\
+"creator" of some resource, while allowing other threads of execution to\
+refer to the previous version of this resource as the creation proceeds;\
+if there is no previous version, then those threads block until the\
+object is available.\
+\
+dogpile.cache is a caching API which provides a generic interface to\
+caching backends of any variety, and additionally provides API hooks\
+which integrate these cache backends with the locking mechanism of\
+dogpile.\
+\
+Overall, dogpile.cache is intended as a replacement to the Beaker\
+caching system, the internals of which are written by the same author.\
+All the ideas of Beaker which "work" are re- implemented in\
+dogpile.cache in a more efficient and succinct manner, and all the cruft\
+(Beaker\'s internals were first written in 2005) relegated to the trash\
+heap.
 
 Name:               python-dogpile-cache
 Version:            0.6.2
-Release:            3%{?dist}
-Summary:            A caching front-end based on the Dogpile lock
+Release:            4%{?dist}
+Summary:            %{sum}
 
 Group:              Development/Libraries
 License:            BSD
@@ -20,54 +41,45 @@ BuildRequires:      python2-devel
 BuildRequires:      python-setuptools
 BuildRequires:      python-nose
 BuildRequires:      python-mock
-BuildRequires:      python-dogpile-core >= 0.4.1
 
 %if 0%{?with_python3}
 BuildRequires:      python3-devel
 BuildRequires:      python3-setuptools
 BuildRequires:      python3-nose
 BuildRequires:      python3-mock
-BuildRequires:      python3-dogpile-core >= 0.4.1
 %endif
 
-Requires:      python-dogpile-core >= 0.4.1
 
 %description
-A caching API built around the concept of a "dogpile lock", which allows
-continued access to an expiring data value while a single thread generates
-a new value.
+%{desc}
 
-dogpile.cache builds on the `dogpile.core
-<http://pypi.python.org/pypi/dogpile.core>`_ locking system, which
-implements the idea of "allow one creator to write while others read" in
-the abstract.   Overall, dogpile.cache is intended as a replacement to the
-`Beaker <http://beaker.groovie.org>`_ caching system, the internals of
-which are written by the same author.   All the ideas of Beaker which
-"work" are re-implemented in dogpile.cache in a more efficient and succinct
-manner, and all the cruft (Beaker's internals were first written in 2005)
-relegated to the trash heap.
+
+%package -n python2-dogpile-cache
+Summary:  %{sum}
+
+%{?python_provide:%python_provide python2-dogpile-cache}
+
+Provides: python-dogpile-core = %{version}-%{release}
+Obsoletes: python-dogpile-core < 0.4.1-12
+
+
+%description -n python2-dogpile-cache
+%{desc}
+
 
 %if 0%{?with_python3}
 %package -n python3-dogpile-cache
-Summary:            A caching front-end based on the Dogpile lock.
-Group:              Development/Libraries
+Summary:  %{sum}
+Group:    Development/Libraries
 
-Requires:      python3-dogpile-core >= 0.4.1
+%{?python_provide:%python_provide python3-dogpile-cache}
+
+Provides: python3-dogpile-core = %{version}-%{release}
+Obsoletes: python3-dogpile-core < 0.4.1-12
+
 
 %description -n python3-dogpile-cache
-A caching API built around the concept of a "dogpile lock", which allows
-continued access to an expiring data value while a single thread generates
-a new value.
-
-dogpile.cache builds on the `dogpile.core
-<http://pypi.python.org/pypi/dogpile.core>`_ locking system, which
-implements the idea of "allow one creator to write while others read" in
-the abstract.   Overall, dogpile.cache is intended as a replacement to the
-`Beaker <http://beaker.groovie.org>`_ caching system, the internals of
-which are written by the same author.   All the ideas of Beaker which
-"work" are re-implemented in dogpile.cache in a more efficient and succinct
-manner, and all the cruft (Beaker's internals were first written in 2005)
-relegated to the trash heap.
+%{desc}
 %endif
 
 %prep
@@ -96,19 +108,29 @@ popd
 %endif
 %{__python} setup.py install -O1 --skip-build --root=%{buildroot}
 
-%files
-%doc README.rst LICENSE
+%files -n python2-dogpile-cache
+%license LICENSE
+%doc README.rst
 %{python_sitelib}/dogpile
 %{python_sitelib}/%{modname}-%{version}*
 
 %if 0%{?with_python3}
 %files -n python3-dogpile-cache
-%doc README.rst LICENSE
+%license LICENSE
+%doc README.rst
 %{python3_sitelib}/dogpile
 %{python3_sitelib}/%{modname}-%{version}-*
 %endif
 
 %changelog
+* Thu Feb 16 2017 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.2-4
+- Drop Require on python-dogpile-core (#1422716).
+- Provide and obsolete python-dogpile-core.
+- Replace the description with upstream's new description, and make it a global.
+- Make the summary a global.
+- Rename python-dogpile-cache to python2-dogpile-cache.
+- Use the license macro.
+
 * Sat Feb 11 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.6.2-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
