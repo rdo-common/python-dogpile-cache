@@ -26,14 +26,14 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            0.6.2
-Release:            4%{?dist}
+Version:            0.6.3
+Release:            1%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
 License:            BSD
-URL:                http://pypi.python.org/pypi/dogpile.cache
-Source0:            http://pypi.python.org/packages/source/d/%{modname}/%{modname}-%{version}.tar.gz
+URL:                https://pypi.io/project/dogpile.cache
+Source0:            https://pypi.io/packages/source/d/%{modname}/%{modname}-%{version}.tar.gz
 
 BuildArch:          noarch
 
@@ -123,6 +123,9 @@ popd
 %endif
 
 %changelog
+* Thu Jun 01 2017 Ralph Bean <rbean@redhat.com> - 0.6.3-1
+- new version
+
 * Thu Feb 16 2017 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.2-4
 - Drop Require on python-dogpile-core (#1422716).
 - Provide and obsolete python-dogpile-core.
