@@ -26,7 +26,7 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            0.6.3
+Version:            0.6.4
 Release:            1%{?dist}
 Summary:            %{sum}
 
@@ -37,16 +37,20 @@ Source0:            https://pypi.io/packages/source/d/%{modname}/%{modname}-%{ve
 
 BuildArch:          noarch
 
-BuildRequires:      python2-devel
-BuildRequires:      python-setuptools
-BuildRequires:      python-nose
+BuildRequires:      python-mako
 BuildRequires:      python-mock
+BuildRequires:      python-nose
+BuildRequires:      python-pytest-cov
+BuildRequires:      python-setuptools
+BuildRequires:      python2-devel
 
 %if 0%{?with_python3}
 BuildRequires:      python3-devel
-BuildRequires:      python3-setuptools
-BuildRequires:      python3-nose
+BuildRequires:      python3-mako
 BuildRequires:      python3-mock
+BuildRequires:      python3-nose
+BuildRequires:      python3-pytest-cov
+BuildRequires:      python3-setuptools
 %endif
 
 
@@ -108,6 +112,17 @@ popd
 %endif
 %{__python} setup.py install -O1 --skip-build --root=%{buildroot}
 
+
+%check
+%{__python2} -m pytest
+
+%if 0%{?with_python3}
+pushd %{py3dir}
+%{__python3} -m pytest
+popd
+%endif
+
+
 %files -n python2-dogpile-cache
 %license LICENSE
 %doc README.rst
@@ -123,6 +138,12 @@ popd
 %endif
 
 %changelog
+* Sat Jul 01 2017 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.4-1
+- Update to 0.6.4 (#1465192).
+- http://dogpilecache.readthedocs.io/en/latest/changelog.html#change-0.6.4
+- Sort the BuildRequires alphabetically.
+- Run the tests.
+
 * Thu Jun 01 2017 Ralph Bean <rbean@redhat.com> - 0.6.3-1
 - new version
 
