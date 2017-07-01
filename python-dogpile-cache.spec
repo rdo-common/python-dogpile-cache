@@ -27,7 +27,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            0.6.4
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
@@ -38,17 +38,15 @@ Source0:            https://pypi.io/packages/source/d/%{modname}/%{modname}-%{ve
 BuildArch:          noarch
 
 BuildRequires:      python-mako
-BuildRequires:      python-mock
-BuildRequires:      python-nose
 BuildRequires:      python-pytest-cov
-BuildRequires:      python-setuptools
 BuildRequires:      python2-devel
+BuildRequires:      python2-mock
+BuildRequires:      python2-setuptools
 
 %if 0%{?with_python3}
 BuildRequires:      python3-devel
 BuildRequires:      python3-mako
 BuildRequires:      python3-mock
-BuildRequires:      python3-nose
 BuildRequires:      python3-pytest-cov
 BuildRequires:      python3-setuptools
 %endif
@@ -60,6 +58,8 @@ BuildRequires:      python3-setuptools
 
 %package -n python2-dogpile-cache
 Summary:  %{sum}
+
+Requires:           python-mako
 
 %{?python_provide:%python_provide python2-dogpile-cache}
 
@@ -75,6 +75,8 @@ Obsoletes: python-dogpile-core < 0.4.1-12
 %package -n python3-dogpile-cache
 Summary:  %{sum}
 Group:    Development/Libraries
+
+Requires:           python3-mako
 
 %{?python_provide:%python_provide python3-dogpile-cache}
 
@@ -138,6 +140,10 @@ popd
 %endif
 
 %changelog
+* Sat Jul 01 2017 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.4-2
+- Require python-mako.
+- Use python2- versions of a few BuildRequires.
+
 * Sat Jul 01 2017 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.4-1
 - Update to 0.6.4 (#1465192).
 - http://dogpilecache.readthedocs.io/en/latest/changelog.html#change-0.6.4
