@@ -27,7 +27,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            0.6.4
-Release:            2%{?dist}
+Release:            3%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
@@ -140,6 +140,9 @@ popd
 %endif
 
 %changelog
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.6.4-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Sat Jul 01 2017 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.4-2
 - Require python-mako.
 - Use python2- versions of a few BuildRequires.
