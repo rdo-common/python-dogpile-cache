@@ -27,7 +27,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            0.6.4
-Release:            3%{?dist}
+Release:            4%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
@@ -140,6 +140,9 @@ popd
 %endif
 
 %changelog
+* Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.6.4-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.6.4-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
