@@ -27,7 +27,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            0.6.4
-Release:            4%{?dist}
+Release:            5%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
@@ -37,8 +37,8 @@ Source0:            https://pypi.io/packages/source/d/%{modname}/%{modname}-%{ve
 
 BuildArch:          noarch
 
-BuildRequires:      python-mako
-BuildRequires:      python-pytest-cov
+BuildRequires:      python2-mako
+BuildRequires:      python2-pytest-cov
 BuildRequires:      python2-devel
 BuildRequires:      python2-mock
 BuildRequires:      python2-setuptools
@@ -59,7 +59,7 @@ BuildRequires:      python3-setuptools
 %package -n python2-dogpile-cache
 Summary:  %{sum}
 
-Requires:           python-mako
+Requires:           python2-mako
 
 %{?python_provide:%python_provide python2-dogpile-cache}
 
@@ -140,6 +140,10 @@ popd
 %endif
 
 %changelog
+* Mon Feb 12 2018 Iryna Shcherbina <ishcherb@redhat.com> - 0.6.4-5
+- Update Python 2 dependency declarations to new packaging standards
+  (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
+
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.6.4-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
