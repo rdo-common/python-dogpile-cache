@@ -26,8 +26,8 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            0.6.4
-Release:            5%{?dist}
+Version:            0.6.5
+Release:            1%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
@@ -140,6 +140,9 @@ popd
 %endif
 
 %changelog
+* Thu Apr 12 2018 Ralph Bean <rbean@redhat.com> - 0.6.5-1
+- new version
+
 * Mon Feb 12 2018 Iryna Shcherbina <ishcherb@redhat.com> - 0.6.4-5
 - Update Python 2 dependency declarations to new packaging standards
   (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
