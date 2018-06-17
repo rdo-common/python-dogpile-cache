@@ -27,7 +27,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            0.6.5
-Release:            1%{?dist}
+Release:            2%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
@@ -140,6 +140,9 @@ popd
 %endif
 
 %changelog
+* Sun Jun 17 2018 Miro Hrončok <mhroncok@redhat.com> - 0.6.5-2
+- Rebuilt for Python 3.7
+
 * Thu Apr 12 2018 Ralph Bean <rbean@redhat.com> - 0.6.5-1
 - new version
 
