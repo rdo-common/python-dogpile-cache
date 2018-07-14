@@ -27,7 +27,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            0.6.5
-Release:            2%{?dist}
+Release:            3%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
@@ -140,6 +140,9 @@ popd
 %endif
 
 %changelog
+* Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.6.5-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Sun Jun 17 2018 Miro Hrončok <mhroncok@redhat.com> - 0.6.5-2
 - Rebuilt for Python 3.7
 
