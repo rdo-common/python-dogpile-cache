@@ -1,4 +1,4 @@
-%if 0%{?fedora} > 12
+%if 0%{?fedora}
 %global with_python3 1
 %endif
 
@@ -26,8 +26,8 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            0.6.5
-Release:            3%{?dist}
+Version:            0.6.6
+Release:            1%{?dist}
 Summary:            %{sum}
 
 Group:              Development/Libraries
@@ -99,7 +99,7 @@ cp -a . %{py3dir}
 %endif
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
 %if 0%{?with_python3}
 pushd %{py3dir}
 %{__python3} setup.py build
@@ -112,7 +112,7 @@ pushd %{py3dir}
 %{__python3} setup.py install -O1 --skip-build --root=%{buildroot}
 popd
 %endif
-%{__python} setup.py install -O1 --skip-build --root=%{buildroot}
+%{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
 
 
 %check
@@ -128,8 +128,8 @@ popd
 %files -n python2-dogpile-cache
 %license LICENSE
 %doc README.rst
-%{python_sitelib}/dogpile
-%{python_sitelib}/%{modname}-%{version}*
+%{python2_sitelib}/dogpile
+%{python2_sitelib}/%{modname}-%{version}*
 
 %if 0%{?with_python3}
 %files -n python3-dogpile-cache
@@ -140,6 +140,10 @@ popd
 %endif
 
 %changelog
+* Mon Jul 23 2018 Kevin Fenzi <kevin@scrye.com> - 0.6.6-1
+- Fix FTBFS bug #1605662
+- Update to 0.6.6.
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 0.6.5-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
