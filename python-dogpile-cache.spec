@@ -26,7 +26,7 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            0.6.6
+Version:            0.6.7
 Release:            1%{?dist}
 Summary:            %{sum}
 
@@ -140,6 +140,10 @@ popd
 %endif
 
 %changelog
+* Tue Oct 09 2018 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.7-1
+- Update to 0.6.7 (#1609253).
+- https://dogpilecache.readthedocs.io/en/latest/changelog.html#change-0.6.7
+
 * Mon Jul 23 2018 Kevin Fenzi <kevin@scrye.com> - 0.6.6-1
 - Fix FTBFS bug #1605662
 - Update to 0.6.6.
