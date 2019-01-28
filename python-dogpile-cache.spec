@@ -30,7 +30,6 @@ Version:            0.6.7
 Release:            1%{?dist}
 Summary:            %{sum}
 
-Group:              Development/Libraries
 License:            BSD
 URL:                https://pypi.io/project/dogpile.cache
 Source0:            https://pypi.io/packages/source/d/%{modname}/%{modname}-%{version}.tar.gz
@@ -74,7 +73,6 @@ Obsoletes: python-dogpile-core < 0.4.1-12
 %if 0%{?with_python3}
 %package -n python3-dogpile-cache
 Summary:  %{sum}
-Group:    Development/Libraries
 
 Requires:           python3-mako
 
