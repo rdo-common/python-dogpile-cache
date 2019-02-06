@@ -36,7 +36,7 @@ Source0:            https://pypi.io/packages/source/d/%{modname}/%{modname}-%{ve
 
 BuildArch:          noarch
 
-BuildRequires:      python2-mako
+BuildRequires:      python-mako
 BuildRequires:      python2-pytest-cov
 BuildRequires:      python2-devel
 BuildRequires:      python2-mock
@@ -58,7 +58,7 @@ BuildRequires:      python3-setuptools
 %package -n python2-dogpile-cache
 Summary:  %{sum}
 
-Requires:           python2-mako
+Requires:           python-mako
 
 %{?python_provide:%python_provide python2-dogpile-cache}
 
