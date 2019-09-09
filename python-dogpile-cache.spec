@@ -1,7 +1,3 @@
-%if 0%{?fedora} || 0%{?rhel} >= 8
-%global with_python3 1
-%endif
-
 %global modname dogpile.cache
 %global sum A caching front-end based on the Dogpile lock
 %global desc Dogpile consists of two subsystems, one building on top of the other.\
@@ -27,7 +23,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            0.6.8
-Release:            3%{?dist}
+Release:            4%{?dist}
 Summary:            %{sum}
 
 License:            BSD
@@ -36,41 +32,17 @@ Source0:            https://pypi.io/packages/source/d/%{modname}/%{modname}-%{ve
 
 BuildArch:          noarch
 
-BuildRequires:      python2-mako
-BuildRequires:      python2-pytest-cov
-BuildRequires:      python2-devel
-BuildRequires:      python2-mock
-BuildRequires:      python2-setuptools
-
-%if 0%{?with_python3}
 BuildRequires:      python3-devel
 BuildRequires:      python3-mako
 BuildRequires:      python3-mock
 BuildRequires:      python3-pytest-cov
 BuildRequires:      python3-setuptools
-%endif
 
 
 %description
 %{desc}
 
 
-%package -n python2-dogpile-cache
-Summary:  %{sum}
-
-Requires:           python2-mako
-
-%{?python_provide:%python_provide python2-dogpile-cache}
-
-Provides: python-dogpile-core = %{version}-%{release}
-Obsoletes: python-dogpile-core < 0.4.1-12
-
-
-%description -n python2-dogpile-cache
-%{desc}
-
-
-%if 0%{?with_python3}
 %package -n python3-dogpile-cache
 Summary:  %{sum}
 
@@ -84,60 +56,34 @@ Obsoletes: python3-dogpile-core < 0.4.1-12
 
 %description -n python3-dogpile-cache
 %{desc}
-%endif
 
 %prep
 %setup -q -n %{modname}-%{version}
 
 # Remove bundled egg-info in case it exists
 rm -rf %{modname}.egg-info
-%if 0%{?with_python3}
-rm -rf %{py3dir}
-cp -a . %{py3dir}
-%endif
 
 %build
-%{__python2} setup.py build
-%if 0%{?with_python3}
-pushd %{py3dir}
 %{__python3} setup.py build
-popd
-%endif
 
 %install
-%if 0%{?with_python3}
-pushd %{py3dir}
 %{__python3} setup.py install -O1 --skip-build --root=%{buildroot}
-popd
-%endif
-%{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
 
 
 %check
-%{__python2} -m pytest
-
-%if 0%{?with_python3}
-pushd %{py3dir}
 %{__python3} -m pytest
-popd
-%endif
 
 
-%files -n python2-dogpile-cache
-%license LICENSE
-%doc README.rst
-%{python2_sitelib}/dogpile
-%{python2_sitelib}/%{modname}-%{version}*
-
-%if 0%{?with_python3}
 %files -n python3-dogpile-cache
 %license LICENSE
 %doc README.rst
 %{python3_sitelib}/dogpile
 %{python3_sitelib}/%{modname}-%{version}-*
-%endif
 
 %changelog
+* Mon Sep 09 2019 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.8-3
+- Drop python2-dogpile-cache (#1748419).
+
 * Sat Aug 17 2019 Miro Hrončok <mhroncok@redhat.com> - 0.6.8-3
 - Rebuilt for Python 3.8
 
