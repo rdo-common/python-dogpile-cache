@@ -22,16 +22,17 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            0.6.8
-Release:            4%{?dist}
+Version:            0.8.0
+Release:            1%{?dist}
 Summary:            %{sum}
 
-License:            BSD
+License:            MIT
 URL:                https://pypi.io/project/dogpile.cache
 Source0:            https://pypi.io/packages/source/d/%{modname}/%{modname}-%{version}.tar.gz
 
 BuildArch:          noarch
 
+BuildRequires:      python3-decorator >= 4.0.0
 BuildRequires:      python3-devel
 BuildRequires:      python3-mako
 BuildRequires:      python3-mock
@@ -81,6 +82,10 @@ rm -rf %{modname}.egg-info
 %{python3_sitelib}/%{modname}-%{version}-*
 
 %changelog
+* Fri Sep 27 2019 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.8.0-1
+- Update to 0.8.0 (#1754092).
+- https://dogpilecache.sqlalchemy.org/en/latest/changelog.html
+
 * Mon Sep 09 2019 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.6.8-3
 - Drop python2-dogpile-cache (#1748419).
 
