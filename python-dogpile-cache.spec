@@ -22,7 +22,7 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            0.8.0
+Version:            0.9.0
 Release:            1%{?dist}
 Summary:            %{sum}
 
@@ -82,6 +82,10 @@ rm -rf %{modname}.egg-info
 %{python3_sitelib}/%{modname}-%{version}-*
 
 %changelog
+* Fri Nov 15 2019 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.9.0-1
+- Update to 0.9.0 (#1766238).
+- https://dogpilecache.sqlalchemy.org/en/latest/changelog.html#change-0.9.0
+
 * Fri Sep 27 2019 Randy Barlow <bowlofeggs@fedoraproject.org> - 0.8.0-1
 - Update to 0.8.0 (#1754092).
 - https://dogpilecache.sqlalchemy.org/en/latest/changelog.html
