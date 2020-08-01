@@ -23,7 +23,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            0.9.0
-Release:            4%{?dist}
+Release:            5%{?dist}
 Summary:            %{sum}
 
 License:            MIT
@@ -82,6 +82,10 @@ rm -rf %{modname}.egg-info
 %{python3_sitelib}/%{modname}-%{version}-*
 
 %changelog
+* Sat Aug 01 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.0-5
+- Second attempt - Rebuilt for
+  https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
