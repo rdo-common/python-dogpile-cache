@@ -1,0 +1,12 @@
+diff --color -Nur dogpile.cache-1.0.2.orig/setup.cfg dogpile.cache-1.0.2/setup.cfg
+--- dogpile.cache-1.0.2.orig/setup.cfg	2020-08-07 10:11:16.466349100 -0700
++++ dogpile.cache-1.0.2/setup.cfg	2020-10-10 13:31:02.293236221 -0700
+@@ -23,7 +23,7 @@
+ [options]
+ install_requires = 
+ 	decorator>=4.0.0
+-	stevedore>=3.0.0
++	stevedore
+ zip_safe = False
+ packages = find:
+ python_requires = >=3.6
