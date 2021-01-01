@@ -22,7 +22,7 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            1.0.2
+Version:            1.1.1
 Release:            1%{?dist}
 Summary:            %{sum}
 
@@ -90,6 +90,9 @@ rm -rf %{modname}.egg-info
 %{python3_sitelib}/%{modname}-%{version}-*
 
 %changelog
+* Fri Jan 01 2021 Kevin Fenzi <kevin@scrye.com> - 1.1.1-1
+- Upgrade to 1.1.1. Fixes rhbz#1897941
+
 * Sat Oct 10 2020 Kevin Fenzi <kevin@scrye.com> - 1.0.2-1
 - Update to 1.0.2.
 - Add patch to use older python-stevedore package in fedora for now for tests.
