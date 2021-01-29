@@ -22,8 +22,8 @@ dogpile.cache in a more efficient and succinct manner, and all the cruft\
 heap.
 
 Name:               python-dogpile-cache
-Version:            1.1.1
-Release:            2%{?dist}
+Version:            1.1.2
+Release:            1%{?dist}
 Summary:            %{sum}
 
 License:            MIT
@@ -90,6 +90,9 @@ rm -rf %{modname}.egg-info
 %{python3_sitelib}/%{modname}-%{version}-*
 
 %changelog
+* Thu Jan 28 2021 Kevin Fenzi <kevin@scrye.com> - 1.1.2-1
+- Update to 1.1.2. Fixes rhbz#1920627
+
 * Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
