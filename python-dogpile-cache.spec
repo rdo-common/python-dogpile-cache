@@ -1,3 +1,4 @@
+%{?python_enable_dependency_generator}
 %global modname dogpile.cache
 %global sum A caching front-end based on the Dogpile lock
 %global desc Dogpile consists of two subsystems, one building on top of the other.\
@@ -23,7 +24,7 @@ heap.
 
 Name:               python-dogpile-cache
 Version:            1.1.2
-Release:            1%{?dist}
+Release:            1.1%{?dist}
 Summary:            %{sum}
 
 License:            MIT
